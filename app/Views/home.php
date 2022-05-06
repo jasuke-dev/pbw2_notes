@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php $this->extend('layouts/home_layout')?>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Home</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script src="js/main.js" defer></script>
-
-</head>
-<body>
+<?php $this->section('content') ?>
     <div id="app">
-      <button class="add-note" type="button">+</button>
+        <?php foreach($notes as $note) : ?>
+            <!-- <textarea class="note"><?= $note['content'] ?></textarea> -->
+        <?php endforeach ?>
+        <button class="add-note" type="button">+</button>
     </div>
-</body>
-
-</html>
+<?php $this->endSection()?>

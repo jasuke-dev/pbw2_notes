@@ -17,19 +17,22 @@ class Api extends BaseController
     }
     public function getNote($user_id)
     {
-        dd($this->notes->getNotesbyUid($user_id));
+        $data = $this->notes->getNotesbyUid($user_id);
+
+        return $this->setResponseFormat('json')->respond(['error' => false, 'data' => $data]);
     }
 
     public function insertNote($user_id, $content){
-        $this->notes->insertNote($user_id,$content);
-
-        return $this->respondCreated();
+        $id = $this->notes->insertNote($user_id,$content);
+        // header('Content-Type: application/json');        
+        // echo json_encode(['id'=>$id]);
+        return $this->setResponseFormat('json')->respond(['error' => false, 'id' => $id]);
     }
 
     public function editNote($id, $content){
-        if($this->notes->editById($id, $content)){
-            $this->respond(200);
-        }
+        $this->notes->editById($id, $content);
+        
+        return $this->setResponseFormat('json')->respond(['error' => false, 'data' => 'success update']);
         
 
     }
@@ -37,7 +40,7 @@ class Api extends BaseController
     public function deleteNote($id){
         $this->notes->deleteById($id);
 
-        $this->respondDeleted($id);
+        return $this->setResponseFormat('json')->respond(['error' => false, 'message' => 'note deleted']);
     }
 
 }

@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Note;
+
 class Home extends BaseController
 {
     public function index()
@@ -14,8 +16,13 @@ class Home extends BaseController
         return view('register');
     }
 
-    public function home()
+    public function home($id)
     {
-        return view('home');
+        $NoteModel = new Note();
+        $Notes = $NoteModel->getNotesbyUid($id);
+        $data = [
+            'notes' => $Notes
+        ];
+        return view('home', $data);
     }
 }

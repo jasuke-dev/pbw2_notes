@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+use CodeIgniter\Database\Query;
 use CodeIgniter\Model;
 
 class Note extends Model{
@@ -11,7 +12,9 @@ class Note extends Model{
 	protected $allowedFields = ['content','user_id'];
 
 	public function getNotesbyUid($user_id){
-			return $this->where(['user_id' => $user_id])->findAll();
+			$data = $this->where(['user_id' => $user_id])->findAll();
+			return $data;
+
 	}
 
 	public function insertNote($user_id,$content){
@@ -21,6 +24,9 @@ class Note extends Model{
 		];
 
 		$this->insert($data);
+		$insertId = $this->getInsertID();
+
+		return $insertId;
 	}
 
 	public function editById($id, $content){
