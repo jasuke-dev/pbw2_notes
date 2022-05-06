@@ -1,17 +1,12 @@
 const notesContainer = document.getElementById("app");
 const addNoteButton = notesContainer.querySelector(".add-note");
 
-// getNotes().forEach((note) => {
-//   const noteElement = createNoteElement(note.id, note.content);
-//   notesContainer.insertBefore(noteElement, addNoteButton);
-// });
 getNotes();
 
 addNoteButton.addEventListener("click", () => addNote());
 
 function getNotes() {
   let id =1;
-  // return JSON.parse(localStorage.getItem("stickynotes-notes") || "[]");
   fetch(`http://localhost:8080/notes/get/${id}`)
     .then(response => response.json())
     .then(data =>{
@@ -56,7 +51,6 @@ function createNoteElement(id, content) {
 }
 
 function addNote() {
-  // const notes = getNotes();
   let id_user = 1;
   let content = null;
   fetch(`http://localhost:8080/notes/insert/${id_user}/${content}`)
@@ -71,18 +65,9 @@ function addNote() {
       notesContainer.insertBefore(noteElement, addNoteButton);
     })
     .catch(err => console.error('error'));
-
-
-  // notes.push(noteObject);
-  // saveNotes(notes);
 }
 
 function updateNote(id, newContent) {
-  // const notes = getNotes();
-  // const targetNote = notes.filter((note) => note.id == id)[0];
-
-  // targetNote.content = newContent;
-  // saveNotes(notes);
   fetch(`http://localhost:8080/notes/edit/${id}/${newContent}`)
     .then(response => response.json())
     .then(data =>{
@@ -92,9 +77,6 @@ function updateNote(id, newContent) {
 }
 
 function deleteNote(id, element) {
-  // const notes = getNotes().filter((note) => note.id != id);
-
-  // saveNotes(notes);
   fetch(`http://localhost:8080/notes/delete/${id}`)
     .then(response => response.json())
     .then(data =>{
