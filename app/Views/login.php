@@ -16,34 +16,30 @@
 																																	<div class="p-5">
 																																					<div class="text-center">
 																																									<h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+																																									<?= view('Myth\Auth\Views\_message_block') ?>
 																																					</div>
-																																					<form class="user">
+																																					<form action="<?= route_to('login') ?>" method="post" class="user">
+																																									<?= csrf_field() ?>
 																																									<div class="form-group">
-																																													<input type="email" class="form-control form-control-user"
+																																													<input type="email" class="form-control form-control-user <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
 																																																	id="exampleInputEmail" aria-describedby="emailHelp"
-																																																	placeholder="Enter Email Address...">
+																																																	placeholder="Enter Email Address..." name="login">
 																																									</div>
 																																									<div class="form-group">
-																																													<input type="password" class="form-control form-control-user"
-																																																	id="exampleInputPassword" placeholder="Password">
+																																													<input type="password" class="form-control form-control-user <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>"
+																																																	id="exampleInputPassword" placeholder="Password" name="password">
 																																									</div>
-																																									<div class="form-group">
-																																													<div class="custom-control custom-checkbox small">
-																																																	<input type="checkbox" class="custom-control-input" id="customCheck">
-																																																	<label class="custom-control-label" for="customCheck">Remember
-																																																					Me</label>
-																																													</div>
-																																									</div>
-																																									<a href="index.html" class="btn btn-primary btn-user btn-block">
-																																													Login
-																																									</a>
-																																									<hr>
-																																									<a href="index.html" class="btn btn-google btn-user btn-block">
-																																													<i class="fab fa-google fa-fw"></i> Login with Google
-																																									</a>
-																																									<a href="index.html" class="btn btn-facebook btn-user btn-block">
-																																													<i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-																																									</a>
+																																									<?php if ($config->allowRemembering): ?>
+																																														
+																																										<div class="form-group">
+																																														<div class="custom-control custom-checkbox small">
+																																																		<input type="checkbox" class="custom-control-input" id="customCheck" <?php if(old('remember')) : ?> checked <?php endif ?>>
+																																																		<label class="custom-control-label" for="customCheck">Remember
+																																																						Me</label>
+																																														</div>
+																																										</div>
+																																									<?php endif; ?>
+																																									<button type="submit" class="btn btn-primary btn-block btn-user"><?=lang('Auth.loginAction')?></button>
 																																					</form>
 																																					<hr>
 																																					<div class="text-center">

@@ -11,49 +11,33 @@
 																							<div class="p-5">
 																											<div class="text-center">
 																															<h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+																															<?= view('Myth\Auth\Views\_message_block') ?>
 																											</div>
-																											<form class="user">
-																															<div class="form-group row">
-																																			<div class="col-sm-6 mb-3 mb-sm-0">
-																																							<input type="text" class="form-control form-control-user" id="exampleFirstName"
-																																											placeholder="First Name">
-																																			</div>
-																																			<div class="col-sm-6">
-																																							<input type="text" class="form-control form-control-user" id="exampleLastName"
-																																											placeholder="Last Name">
-																																			</div>
+																											<form action="<?= route_to('register') ?>" method="post" class="user">
+                        							<?= csrf_field() ?>
+																															<div class="form-group">
+																																			<input type="text" class="form-control form-control-user <?php if(session('errors.username')) : ?>is-invalid<?php endif ?>" id="username" name="username"
+																																							placeholder="Username" value="<?= old('username') ?>">
 																															</div>
 																															<div class="form-group">
-																																			<input type="email" class="form-control form-control-user" id="exampleInputEmail"
-																																							placeholder="Email Address">
+																																			<input type="email" class="form-control form-control-user <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" id="exampleInputEmail" name="email"
+																																							placeholder="Email Address" value="<?= old('email') ?>">
 																															</div>
 																															<div class="form-group row">
 																																			<div class="col-sm-6 mb-3 mb-sm-0">
-																																							<input type="password" class="form-control form-control-user"
-																																											id="exampleInputPassword" placeholder="Password">
+																																							<input type="password" class="form-control form-control-user <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" name="password"
+																																											id="exampleInputPassword" placeholder="Password" autocomplete="off">
 																																			</div>
 																																			<div class="col-sm-6">
-																																							<input type="password" class="form-control form-control-user"
-																																											id="exampleRepeatPassword" placeholder="Repeat Password">
+																																							<input type="password" name="pass_confirm" class="form-control form-control-user <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>"
+																																											id="exampleRepeatPassword" placeholder="Repeat Password" autocomplete="off">
 																																			</div>
 																															</div>
-																															<a href="login.html" class="btn btn-primary btn-user btn-block">
-																																			Register Account
-																															</a>
-																															<hr>
-																															<a href="index.html" class="btn btn-google btn-user btn-block">
-																																			<i class="fab fa-google fa-fw"></i> Register with Google
-																															</a>
-																															<a href="index.html" class="btn btn-facebook btn-user btn-block">
-																																			<i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-																															</a>
+																															<button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
 																											</form>
 																											<hr>
 																											<div class="text-center">
-																															<a class="small" href="forgot-password.html">Forgot Password?</a>
-																											</div>
-																											<div class="text-center">
-																															<a class="small" href="/">Already have an account? Login!</a>
+																															<a class="small" href="<?= route_to('login') ?>">Already have an account? Login!</a>
 																											</div>
 																							</div>
 																			</div>
