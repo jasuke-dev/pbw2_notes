@@ -29,16 +29,6 @@
 																																													<input type="password" class="form-control form-control-user <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>"
 																																																	id="exampleInputPassword" placeholder="Password" name="password">
 																																									</div>
-																																									<?php if ($config->allowRemembering): ?>
-																																														
-																																										<div class="form-group">
-																																														<div class="custom-control custom-checkbox small">
-																																																		<input type="checkbox" class="custom-control-input" id="customCheck" <?php if(old('remember')) : ?> checked <?php endif ?>>
-																																																		<label class="custom-control-label" for="customCheck">Remember
-																																																						Me</label>
-																																														</div>
-																																										</div>
-																																									<?php endif; ?>
 																																									<button type="submit" class="btn btn-primary btn-block btn-user"><?=lang('Auth.loginAction')?></button>
 																																					</form>
 																																					<hr>

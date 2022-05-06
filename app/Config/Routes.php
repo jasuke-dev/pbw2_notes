@@ -37,6 +37,13 @@ $routes->setAutoRoute(true);
 $routes->group('', ['filter' => 'login'], function($routes){
     $routes->get('/home', 'Home::home');
 });
+$routes->get('/notes/get/(:segment)', 'Api::getNote/$1');
+
+$routes->get('/notes/insert/(:segment)/(:segment)', 'Api::insertNote/$1/$2');
+
+$routes->get('/notes/edit/(:segment)/(:segment)', 'Api::editNote/$1/$2');
+
+$routes->get('/notes/delete/(:segment)', 'Api::deleteNote/$1');
 
 /*
  * --------------------------------------------------------------------
