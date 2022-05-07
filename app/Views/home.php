@@ -3,7 +3,9 @@
 <?php $this->section('content') ?>
     <div class="header">
         <h1>Notes for Ilham</h1>
-        <button class="logout" type="button"><i class="fa-solid fa-right-from-bracket"></i></button>
+        <a href="<?= route_to('logout') ?>">
+            <button class="logout" type="button"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </a>
     </div>
     <div id="app">
         <?php foreach($notes as $note) : ?>

@@ -79,7 +79,7 @@ body {
  border-radius: 10px;
  border: none;
  outline: none;
- background: rgba(0, 0, 0, 0.1);
+ background: rgba(187, 211, 218, 0.4);
  font-size: 32px;
  padding: 10px;
  color: #4758dce0;
@@ -88,7 +88,7 @@ body {
 }
 
 .logout:hover {
- background: rgba(0, 0, 0, 0.2);
+ background: rgba(187, 211, 218, 0.7);
 }
 
 

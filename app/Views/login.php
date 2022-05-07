@@ -21,9 +21,9 @@
 																																					<form action="<?= route_to('login') ?>" method="post" class="user">
 																																									<?= csrf_field() ?>
 																																									<div class="form-group">
-																																													<input type="email" class="form-control form-control-user <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
+																																													<input type="text" class="form-control form-control-user <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
 																																																	id="exampleInputEmail" aria-describedby="emailHelp"
-																																																	placeholder="Enter Email Address..." name="login">
+																																																	placeholder="Enter Username / Email Address..." name="login">
 																																									</div>
 																																									<div class="form-group">
 																																													<input type="password" class="form-control form-control-user <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>"
