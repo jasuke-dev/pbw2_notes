@@ -1,13 +1,12 @@
 const notesContainer = document.getElementById("app");
 const addNoteButton = notesContainer.querySelector(".add-note");
-
-getNotes();
+const user_id = document.querySelector('meta[name="user_id"]').content;
+getNotes(user_id);
 
 addNoteButton.addEventListener("click", () => addNote());
 
-function getNotes() {
-  let id =1;
-  fetch(`http://localhost:8080/notes/get/${id}`)
+function getNotes(user_id) {
+  fetch(`http://localhost:8080/notes/get/${user_id}`)
     .then(response => response.json())
     .then(data =>{
       console.log(data.data);
@@ -51,9 +50,8 @@ function createNoteElement(id, content) {
 }
 
 function addNote() {
-  let id_user = 1;
   let content = null;
-  fetch(`http://localhost:8080/notes/insert/${id_user}/${content}`)
+  fetch(`http://localhost:8080/notes/insert/${user_id}/${content}`)
     .then(response => response.json())
     .then(data =>{
       const noteObject = {
