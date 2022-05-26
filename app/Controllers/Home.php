@@ -3,16 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Note;
-helper('auth');
-helper('url');
 
 class Home extends BaseController
 {
-    // use \Myth\Auth\AuthTrait;
-    // public function __construct() 
-    // {
-    //     $this->restrict( site_url('/login') );
-    // }
     
     public function index()
     {
@@ -26,7 +19,8 @@ class Home extends BaseController
 
     public function home($id)
     {
-        $userId = user_id();
+        $userId = user_id();    
+        $username = user()->username;
 
         if($userId != $id){
             return redirect()->to('/'.$userId.'/home');
@@ -36,6 +30,7 @@ class Home extends BaseController
         $data = [
             'notes' => $Notes,
             'user_id' => $userId,
+            'username' => $username
         ];
         return view('home', $data);
     }

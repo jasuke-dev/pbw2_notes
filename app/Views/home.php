@@ -2,7 +2,7 @@
 
 <?php $this->section('content') ?>
     <div class="header">
-        <h1>Notes for Ilham</h1>
+        <h1>Notes for <?= $username ?></h1>
         <a href="<?= route_to('logout') ?>">
             <button class="logout" type="button"><i class="fa-solid fa-right-from-bracket"></i></button>
         </a>

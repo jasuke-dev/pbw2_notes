@@ -10,6 +10,7 @@
 																			<div class="col-lg-7">
 																							<div class="p-5">
 																											<div class="text-center">
+																															<h1 class="h1 fw-bold text-gray-900 mb-4">My Note</h1>
 																															<h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
 																															<?= view('Myth\Auth\Views\_message_block') ?>
 																											</div>

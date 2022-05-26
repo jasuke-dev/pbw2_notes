@@ -15,6 +15,7 @@
 																													<div class="col-lg-6">
 																																	<div class="p-5">
 																																					<div class="text-center">
+																																									<h1 class="h1 text-gray-900 mb-4">My Note</h1>
 																																									<h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
 																																									<?= view('Myth\Auth\Views\_message_block') ?>
 																																					</div>
@@ -32,9 +33,9 @@
 																																									<button type="submit" class="btn btn-primary btn-block btn-user"><?=lang('Auth.loginAction')?></button>
 																																					</form>
 																																					<hr>
-																																					<div class="text-center">
+																																					<!-- <div class="text-center">
 																																									<a class="small" href="forgot-password.html">Forgot Password?</a>
-																																					</div>
+																																					</div> -->
 																																					<div class="text-center">
 																																									<a class="small" href="/register">Create an Account!</a>
 																																					</div>
